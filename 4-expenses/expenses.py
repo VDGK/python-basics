@@ -1,7 +1,7 @@
-expenses = [300, 450, 550, 1200, 350, 768, 999]
-sum_expenses = sum(expenses)
-min_expenses = min(expenses)
-max_expenses = max(expenses)
-avg_expenses = sum_expenses / len(expenses)
-expenses_tuple= (min_expenses, max_expenses, sum_expenses)
-print(expenses_tuple)
+expenses = input("Введите сумму формата \"<руб> руб <коп> коп \": ").strip().lower().split(" ")
+if len(expenses) < 3:
+    print(f"{int(expenses[0]):.2f} ₽")
+elif len(expenses) == 4:
+    print(f"{int(expenses[0])}.{int(expenses[2])} ₽")
+else:
+    print("Некорректный формат суммы")
