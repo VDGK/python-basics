@@ -1,17 +1,27 @@
-# expenses = input("Введите сумму формата \"<руб> руб <коп> коп \": ").strip().lower().split(" ")
-# if len(expenses) < 3 and expenses[1] == "руб":
-#     print(f"{int(expenses[0]):.2f} ₽")
-# elif len(expenses) == 4 and expenses[1] == "руб" and expenses[3] == "коп":
-#     print(f"{int(expenses[0])}.{int(expenses[2]):.2f} ₽")
-# else:
-#     print("Некорректный формат суммы")
+def add_expenses(expenses: list[float], value: float) -> list[float]:
+    expenses.append(value)
+    return expenses
+
+def delete_expense(expenses: list[float], index: int) -> list[float]:
+    expenses.pop(index)
+    return expenses
+def get_total(expenses: list[float]) -> float:
+    return sum(expenses)
+
+def get_average(expenses: list[float]) -> float:
+    return sum(expenses)/len(expenses)
+
+def print_report(expenses: list[float]) -> str:
+    return f"Отчет: {get_total(expenses)}\n"
+expenses = []
 while True:
     print("======== Меню ========")
     menu = ("1. Добавить расход\n"
             "2. Показать все расходы\n"
             "3. Показать сумму и средний расход\n"
             "4. Удалить расход по номеру\n"
-            "5. Выход\n"
+            "5. Показать отчет\n"
+            "6. Выход\n"
           )
     print(menu)
     menu_num = int(input("Введите пункт меню: "))
@@ -19,10 +29,12 @@ while True:
         case 1:
             add_expenses()
         case 2:
-            show_all_expenses()
+            get_total()
         case 3:
-            show_sum_and_avg()
+            get_average()
         case 4:
-            delete_expenses_by_id()
+            delete_expence()
         case 5:
+            print_report()
+        case 6:
             exit()
