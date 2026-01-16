@@ -5,16 +5,21 @@ def add_expenses(expenses: list[float], value: float) -> list[float]:
     return expenses
 
 def delete_expense(expenses: list[float], index: int) -> list[float]:
-    expenses.pop(index)
+    if index in range(len(expenses)):
+        expenses.pop(index)
+    else:
+        return expenses
     return expenses
 def get_total(expenses: list[float]) -> float:
     return sum(expenses)
 
 def get_average(expenses: list[float]) -> float:
+    if len(expenses) == 0:
+        return 0.0
     return sum(expenses)/len(expenses)
 
-def print_report(expenses: list[float]) -> str:
-    return (f"======= Отчет:=======\n"
+def print_report(expenses: list[float])
+    return print(f"======= Отчет:=======\n"
             f" {get_total(expenses)}\n")
 def user_input():
     return int(input("Введите значение: "))
@@ -40,6 +45,6 @@ while True:
         case 4:
             print(delete_expense(expenses, user_input()))
         case 5:
-            print_report(expenses)
+            print(print_report(expenses))
         case 6:
             exit()
