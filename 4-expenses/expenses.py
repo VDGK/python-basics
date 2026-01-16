@@ -18,7 +18,7 @@ def get_average(expenses: list[float]) -> float:
         return 0.0
     return sum(expenses)/len(expenses)
 
-def print_report(expenses: list[float])
+def print_report(expenses: list[float]):
     return print(f"======= Отчет:=======\n"
             f" {get_total(expenses)}\n")
 def user_input():
