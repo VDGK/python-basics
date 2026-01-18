@@ -10,6 +10,7 @@ def delete_expense(expenses: list[float], index: int) -> list[float]:
     else:
         return expenses
     return expenses
+
 def get_total(expenses: list[float]) -> float:
     return sum(expenses)
 
@@ -21,6 +22,7 @@ def get_average(expenses: list[float]) -> float:
 def print_report(expenses: list[float]):
     return print(f"======= Отчет:=======\n"
             f" {get_total(expenses)}\n")
+
 def user_input():
     return int(input("Введите значение: "))
 
