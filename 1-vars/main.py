@@ -1,4 +1,4 @@
-for i in range(1, 10):
-    for j in range(1, 10):
-        print(f"{i * j:4}", end=" ")
-    print()
+cars_set1 = {'Toyota', 'BMW', 'Mercedes', 'Audi'}
+cars_set2 = {'BMW', 'Audi', 'Lexus', 'Volvo'}
+
+print(cars_set1 & cars_set2)
