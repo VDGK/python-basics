@@ -1,9 +1,17 @@
-books: dict[str, str] = {"Белая Гвардия": "А.C.Пушкин", "15-летний Капитан": "Жуль Верн", "1984": "Джордж Оруэлл", "Тихий Дон" : "Михаил Шолохов", "Собачье Сердце" : "Михаил Булгаков", "Мастер и Маргарита" : "Михаил Булгаков"}
-uniq_books = []
-uniq_authors = set()
-for book, author in books.items():
-    uniq_books.append(book)
-    uniq_authors.add(author)
-print(f"Список всех книг: {uniq_books}")
-print(f"Список уникальных авторов: {uniq_authors}")
+import sys
 
+books: dict[str, str] = {"Белая Гвардия": "Михаил Булгаков", "15-летний Капитан": "Жуль Верн", "1984": "Джордж Оруэлл", "Тихий Дон" : "Михаил Шолохов", "Собачье Сердце" : "Михаил Булгаков", "Мастер и Маргарита" : "Михаил Булгаков"}
+
+
+if sys.argv[1] == "filter":
+    target_author = sys.argv[2]
+    filtered_books = {title: author for title, author in books.items() if author == target_author}
+    print(list(map(lambda item: f"{item[0]} - {item[1]}" , filtered_books.items())))
+
+if sys.argv[1] == "sort":
+    if sys.argv[2] == "book":
+        sorted_books = list(map(lambda item: f"{item[0]} - {item[1]}" , books.items()))
+        print(list(sorted(sorted_books)))
+    if sys.argv[2] == "author":
+        sorted_books = list(map(lambda item: f"{item[1]} - {item[0]}" , books.items()))
+        print(list(sorted(sorted_books)))
