@@ -10,4 +10,7 @@ if sys.argv[1] == "filter":
 
 if sys.argv[1] == "sort":
     sorted_books = list(map(lambda item: f"{item[0]} - {item[1]}" , books.items()))
-    print(list(sorted(sorted_books)))
+    if sys.argv[2] == "book":
+        print(list(sorted(sorted_books, key=lambda item: item[0])))
+    if sys.argv[2] == "author":
+        print(list(sorted(sorted_books, key=lambda item: item[1])))
