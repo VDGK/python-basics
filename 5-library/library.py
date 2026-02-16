@@ -9,9 +9,5 @@ if sys.argv[1] == "filter":
     print(list(map(lambda item: f"{item[0]} - {item[1]}" , filtered_books.items())))
 
 if sys.argv[1] == "sort":
-    if sys.argv[2] == "book":
-        sorted_books = list(map(lambda item: f"{item[0]} - {item[1]}" , books.items()))
-        print(list(sorted(sorted_books)))
-    if sys.argv[2] == "author":
-        sorted_books = list(map(lambda item: f"{item[1]} - {item[0]}" , books.items()))
-        print(list(sorted(sorted_books)))
+    sorted_books = list(map(lambda item: f"{item[0]} - {item[1]}" , books.items()))
+    print(list(sorted(sorted_books)))
